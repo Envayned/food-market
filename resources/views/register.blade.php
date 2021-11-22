@@ -56,7 +56,7 @@
 	</div>
 
 
-		<a href="<?=BASE?>/Default/login">Already have an account? Login.</a>
+		<a href="login">Already have an account? Login.</a>
 	</div>
 	
 </body>

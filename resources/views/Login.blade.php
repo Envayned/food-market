@@ -52,7 +52,7 @@
 			</form>
 			
 	</div>
-		<a href="<?=BASE?>/Default/login">No account? Register.</a>
+		<a href="register">No account? Register.</a>
 	</div>
 </body>
 </html>
