@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Product;
 
 /*
 |--------------------------------------------------------------------------
@@ -22,3 +23,21 @@ Route::get('/dashboard', function () {
 })->middleware(['auth'])->name('dashboard');
 
 require __DIR__.'/auth.php';
+
+Route::get('/products', function(){
+   return view('products', [
+       'products' => Product::all()
+   ]);
+});
+
+//Route::get('/product', function($id){
+//    return view('product', [
+//        'product' => Product::findOrFail($id)
+//    ]);
+//});
+
+Route::get('/product', function(){
+    return view('product', [
+        'product' => '<h1>Hello world</h1>'
+    ]);
+});

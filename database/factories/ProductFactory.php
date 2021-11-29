@@ -13,14 +13,11 @@ class ProductFactory extends Factory
      */
     public function definition()
     {
+
         return [
-            // 'product_name' => $this->faker->name(),
-            // 'product_description' => $this->faker->product_description(),
-            // 'product_price' => $this->faker->,
-            // '' => ,
-            // '' => ,
-            // '' => ,
-            // '' => ,
+             'product_name' => "item" . $this->faker->randomDigit(),
+             'product_description' => 'lorem ipsum',
+             'product_price' => 9.99,
         ];
     }
 }
