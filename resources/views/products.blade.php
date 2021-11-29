@@ -10,7 +10,7 @@
     <?php foreach ($products as $product) : ?>
         <article>
             <h1>
-                <a href="/product">
+                <a href= '/product/{{$product->id}}'>
                     {{$product->product_name}}
                 </a>
             </h1>

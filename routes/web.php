@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Http\Controllers\ProductController;
 
 /*
 |--------------------------------------------------------------------------
@@ -30,14 +31,11 @@ Route::get('/products', function(){
    ]);
 });
 
-//Route::get('/product', function($id){
-//    return view('product', [
-//        'product' => Product::findOrFail($id)
-//    ]);
-//});
-
 Route::get('/product', function(){
     return view('product', [
-        'product' => '<h1>Hello world</h1>'
+        ProductController::class, 'show'
     ]);
 });
+
+
+Route::get('/product/{id}', [ProductController::class, 'show']);

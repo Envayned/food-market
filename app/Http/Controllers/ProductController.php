@@ -41,12 +41,14 @@ class ProductController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+     * @param  int $id
+     * @return \Illuminate\View\View
      */
-    public function show(Product $product)
+    public function show($id)
     {
-        //
+        return view('product', [
+           'product' => Product::findOrFail($id)
+        ]);
     }
 
     /**

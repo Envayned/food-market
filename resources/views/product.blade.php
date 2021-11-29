@@ -6,10 +6,10 @@
 
 <body>
     <article>
-        <h1>{{$product->product_name}}</h1>
+        <h1>{{$product ?? ''}}</h1>
 
         <div>
-            empty pls
+            works!
         </div>
     </article>
 
