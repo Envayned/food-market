@@ -29,7 +29,7 @@ Route::get('/products', function(){
    return view('products', [
        'products' => Product::all()
    ]);
-});
+})->middleware(['auth'])->name("products");
 
 Route::get('/product', function(){
     return view('product', [
