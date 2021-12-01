@@ -11,15 +11,16 @@ class Product extends Model
 
     /**
      * The fillable attributes
-     * 
+     *
      * @var string[]
      */
 
      protected $fillable = [
-        'product_id',
-        // ''
+         'name',
+         'description',
+         'price',
      ];
 
 
-    
+
 }

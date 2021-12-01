@@ -1,17 +1,19 @@
-<!doctype html>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
+            {{ __('Product') }}
+        </h2>
+    </x-slot>
 
-<title>Product</title>
+    <body>
+        <article>
+            <h1>{{$product ?? ''}}</h1>
 
-<link rel="stylesheet" href="../css/app.css">
+            <div>
+                works!
+            </div>
+        </article>
 
-<body>
-    <article>
-        <h1>{{$product ?? ''}}</h1>
-
-        <div>
-            works!
-        </div>
-    </article>
-
-    <a href="/products">Go back</a>
-</body>
+        <a href="/products">Go back</a>
+    </body>
+</x-app-layout>

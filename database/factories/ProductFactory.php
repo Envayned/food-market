@@ -15,9 +15,9 @@ class ProductFactory extends Factory
     {
 
         return [
-             'product_name' => "item" . $this->faker->randomDigit(),
-             'product_description' => 'lorem ipsum',
-             'product_price' => 9.99,
+             'name' => "Product #" . $this->faker->unique()->randomNumber(),
+             'description' => 'lorem ipsum',
+             'price' => 9.99,
         ];
     }
 }

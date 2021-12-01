@@ -10,15 +10,15 @@
             <article>
                 <h1>
                     <a href= '/product/{{$product->id}}'>
-                        {{$product->product_name}}
+                        {{$product->name}}
                     </a>
                 </h1>
 
                 <div>
                     <p>
-                        <?= $product->product_description; ?>
+                        <?= $product->description; ?>
                     <br>
-                        <?= $product->product_price; ?>
+                        <?= $product->price; ?>
                     </p>
                 </div>
             </article>
