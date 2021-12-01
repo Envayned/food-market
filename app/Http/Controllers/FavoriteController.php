@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Favorite;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class FavoriteController extends Controller
 {
@@ -48,6 +49,7 @@ class FavoriteController extends Controller
     {
         return view('favorite', [
             'favorite' => Favorite::findOrFail($id)
+//                ->where('user_id', auth::id())->get()
         ]);
     }
 
@@ -85,4 +87,16 @@ class FavoriteController extends Controller
         Favorite::where('id', $id)->delete();
         return redirect('favorites');
     }
+
+    /**
+     * Get favorite by user_id.
+     *
+     * @param $query
+     *
+     * @return $query
+     */
+//    public function getByUserId(){
+//        $query->where('user_id', auth::id());
+//    }
+
 }

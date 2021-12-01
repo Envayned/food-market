@@ -6,13 +6,18 @@
     </x-slot>
 
     <body>
-    <article>
-        <h1>{{$favorite ?? ''}}</h1>
+        <article>
+            <h1>{{$favorite ?? ''}}</h1>
 
-        <div>
-            <a href="/favorite/{{$favorite->id}}/delete"> delete from favorites</a>
-        </div>
-    </article>
+            <div>
+{{--                @foreach($collection as $favorite)--}}
+{{--                    {{$favorite->product->name}}--}}
+{{--                @endforeach--}}
+            </div>
+            <div>
+                <a href="/favorite/{{$favorite->id}}/delete"> delete from favorites</a>
+            </div>
+        </article>
 
     <a href="/favorites">Go back</a>
     </body>
