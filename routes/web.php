@@ -2,7 +2,9 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
+use App\Models\Favorite;
 use App\Http\Controllers\ProductController;
+use App\Http\Controllers\FavoriteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -37,9 +39,16 @@ Route::get('/product', function(){
     ]);
 });
 
+Route::get('/favorites', function(){
+   return view('favorites', [
+      'favorites' => Favorite::all()
+   ]);
+})->middleware(['auth'])->name("favorites");
 
-
+Route::get('/favorite/{id}', [FavoriteController::class, 'show'])->middleware(['auth']);
 
 Route::get('/product/{id}', [ProductController::class, 'show'])->middleware(['auth']);
 
 Route::get('/product/{id}/delete', [ProductController::class, 'destroy'])->middleware(['auth']);
+
+Route::get('/favorite/{id}/delete', [FavoriteController::class, 'destroy'])->middleware(['auth']);

@@ -11,11 +11,9 @@ class Controller extends BaseController
 {
     use AuthorizesRequests, DispatchesJobs, ValidatesRequests;
 
-    function create() 
+    function create()
     {
-        
+
     }
-
-
 
 }
