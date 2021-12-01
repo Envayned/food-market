@@ -38,4 +38,8 @@ Route::get('/product', function(){
 });
 
 
-Route::get('/product/{id}', [ProductController::class, 'show']);
+
+
+Route::get('/product/{id}', [ProductController::class, 'show'])->middleware(['auth']);
+
+Route::get('/product/{id}/delete', [ProductController::class, 'destroy'])->middleware(['auth']);

@@ -10,7 +10,7 @@
             <h1>{{$product ?? ''}}</h1>
 
             <div>
-                works!
+                <a href="/product/{{$product->id}}/delete"> delete</a>
             </div>
         </article>
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class ProductController extends Controller
 {
@@ -42,7 +43,7 @@ class ProductController extends Controller
      * Display the specified resource.
      *
      * @param  int $id
-     * @return \Illuminate\View\View
+     * @return View
      */
     public function show($id)
     {
@@ -77,11 +78,13 @@ class ProductController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
+//     * @param  Request $request
+     * @param int $id
+     * @return View
      */
-    public function destroy(Product $product)
+    public function destroy($id)
     {
-        //
+        Product::where('id', $id)->delete();
+        return redirect('products');
     }
 }
