@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Favorite;
@@ -40,10 +41,18 @@ Route::get('/product', function(){
 });
 
 Route::get('/favorites', function(){
-   return view('favorites', [
-      'favorites' => Favorite::all()
-   ]);
+   return view('favorites', array(
+      'favorites' => Favorite::where('user_id', Auth::id())->get()
+   ));
 })->middleware(['auth'])->name("favorites");
+//
+//Route::get('/favorites', [FavoriteController::class, 'getByUserId'])
+//    ->middleware('auth')
+//    ->name('favorites');
+
+//Route::get('/favorites', function(){
+//   return var_dump(auth::id());
+//});
 
 Route::get('/favorite/{id}', [FavoriteController::class, 'show'])->middleware(['auth']);
 
@@ -52,3 +61,7 @@ Route::get('/product/{id}', [ProductController::class, 'show'])->middleware(['au
 Route::get('/product/{id}/delete', [ProductController::class, 'destroy'])->middleware(['auth']);
 
 Route::get('/favorite/{id}/delete', [FavoriteController::class, 'destroy'])->middleware(['auth']);
+
+Route::get('/cart', function(){
+    $cart = "lmao";
+})->middleware(['auth'])->name("cart");

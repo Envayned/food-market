@@ -16,9 +16,10 @@
 
                 <div>
                     <p>
-                        <?= $product->description; ?>
+                        {{$product->description}}
                     <br>
-                        <?= $product->price; ?>
+                        {{$product->price}}
+{{--                        {{$product->created_at}}--}}
                     </p>
                 </div>
             </article>

@@ -49,7 +49,6 @@ class FavoriteController extends Controller
     {
         return view('favorite', [
             'favorite' => Favorite::findOrFail($id)
-//                ->where('user_id', auth::id())->get()
         ]);
     }
 
@@ -89,14 +88,16 @@ class FavoriteController extends Controller
     }
 
     /**
-     * Get favorite by user_id.
+     * Get favorites by user_id.
      *
      * @param $query
      *
      * @return $query
      */
-//    public function getByUserId(){
-//        $query->where('user_id', auth::id());
-//    }
+    public function getByUserId(){
+        return view('favorites', [
+            'favorites' => Favorite::where('user_id', Auth::id())->get()
+        ]);
+    }
 
 }
