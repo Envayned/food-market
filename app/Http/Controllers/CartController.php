@@ -37,10 +37,12 @@ class CartController extends Controller
      */
     public function store($id)
     {
+        
         if( !Cart::where('product_id', '=', $id)->exists() && Cart::where('user_id', '=', auth::id())->exists()) {
-            $item = new item();
+            $item = new Cart();
             $item->product_id = $id;
             $item->user_id = auth::id();
+            $item->quantity = '1';
             $item->save();
         }
         else{

@@ -24,7 +24,9 @@
                             <br>
                             {{$user->id}}
                             <br>
-{{--                            <a href=""></a>--}}
+                        <div>
+                            <a href="/user/{{$user->id}}/delete"> delete user</a>
+                        </div>
                         </p>
                     </div>
                 </article>

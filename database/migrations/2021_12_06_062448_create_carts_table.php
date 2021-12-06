@@ -20,7 +20,7 @@ class CreateCartsTable extends Migration
                 ->onDelete('cascade');
             $table->foreignId('product_id')->constrained()
                 ->on('products')->onDelete('cascade');
-            $table->integer('quantity');
+            $table->integer('quantity')->default('1');
         });
     }
 
