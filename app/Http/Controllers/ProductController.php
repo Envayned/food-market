@@ -28,6 +28,20 @@ class ProductController extends Controller
         //
     }
 
+    public function addToCart($id){
+        $product = Product::find($id);
+        $product-> in_cart = true;
+        $product->save();
+        return redirect('cart');
+    }
+
+    public function removeFromCart($id){
+        $product = Product::find($id);
+        $product-> in_cart = false;
+        $product->save();
+        return redirect('cart');
+    }
+
     /**
      * Store a newly created resource in storage.
      *

@@ -21,12 +21,14 @@ class DatabaseSeeder extends Seeder
             'name' => 'Hadi',
             'email' => 'hadi@admin.com',
             'password' => Hash::make('password'),
+            'is_admin' => true,
         ]);
 
         DB::table('users')->insert([
            'name' => 'Jonathan',
             'email' => 'jo@admin.com',
             'password' => Hash::make('password'),
+            'is_admin' => true,
         ]);
         User::factory(10)->create();
         $this->call([

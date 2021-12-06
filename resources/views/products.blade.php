@@ -21,6 +21,13 @@
                         {{$product->price}}
 {{--                        {{$product->created_at}}--}}
                     </p>
+                    <a href= "{{route('add-favorite', $product->id)}}">
+                        <p>add to favorites</p>
+                    </a>
+                    <a href= '/cart/{{$product->id}}/add'>
+                        <p>add to cart</p>
+                    </a>
+
                 </div>
             </article>
         <?php endforeach;?>

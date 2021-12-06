@@ -31,12 +31,19 @@ class FavoriteController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
+     * @param  $id
+     * @return \Illuminate\View\View
      */
-    public function store(Request $request)
+    public function store($id)
     {
-        //
+
+        if( !Favorite::where('product_id', '=', $id)->exists() && Favorite::where('user_id', '=', auth::id())->exists()) {
+            $favorite = new Favorite();
+            $favorite->product_id = $id;
+            $favorite->user_id = auth::id();
+            $favorite->save();
+        }
+        return redirect('favorites');
     }
 
     /**

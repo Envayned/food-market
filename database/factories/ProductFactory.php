@@ -18,6 +18,7 @@ class ProductFactory extends Factory
              'name' => "Product #" . $this->faker->unique()->randomNumber(),
              'description' => 'lorem ipsum',
              'price' => 9.99,
+             'in_cart' => $this->faker->boolean(0),
         ];
     }
 }

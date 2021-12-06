@@ -12,11 +12,10 @@
 {{--        @endphp--}}
 
         @foreach ($favorites as $favorite)
-
            @if (Auth::id() == $favorite->user_id)
                 <article>
                     <h1>
-                        <a href= '/favorite/{{$favorite->id}}'>
+                        <a href= "/favorite/{{$favorite->id}}">
                             {{$favorite->product->name }}
                         </a>
                     </h1>
