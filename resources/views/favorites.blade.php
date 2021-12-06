@@ -4,7 +4,7 @@
             {{ __('Favorites') }}
         </h2>
     </x-slot>
-    <div class="divide-y-2 divide-gray-200">
+    <div class="divide-y-2 divide-x-2 divide-gray-200  grid grid-cols-3 text-center">
 
 {{--        @php--}}
 {{--            use Illuminate\Support\Facades\Auth;--}}
