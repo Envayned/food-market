@@ -23,17 +23,18 @@
 {{--                        {{$product->created_at}}--}}
                     </p>
                     <a href= "{{route('add-favorite', $product->id)}}">
-                    <i class="fas fa-heart"></i>&nbsp;&nbsp;&nbsp;
+                    <i class="fas fa-heart fa-lg"></i>&nbsp;&nbsp;&nbsp;
 
                         
                     </a>
                     <a href= '/cart/{{$product->id}}/add'>
-                    <i class="fas fa-cart-plus"></i>
+                    <i class="fas fa-cart-plus fa-lg"></i>
                     </a>
 
                 </div>
             </article>
         <?php endforeach;?>
     </div>
+    <i class="fas fa-plus-circle fa-3x"></i>
 </x-app-layout>
 

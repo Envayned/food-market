@@ -17,11 +17,11 @@
 {{--                @endforeach--}}
             </div>
             <div>
-                <a href="/favorite/{{$favorite->id}}/delete"> <i class="far fa-heart"></i></a>
+                <a href="/favorite/{{$favorite->id}}/delete"> <i class="far fa-heart fa-2x"></i></a>
             </div>
         </article>
-
-    <a href="/favorites"><i class="fas fa-arrow-circle-left"></i></a>
+    <br>
+    <a href="/favorites"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
     </body>
    
 </x-app-layout>
