@@ -10,15 +10,15 @@
             <article>
                 <h1>
                     <a href= '/product/{{$product->id}}'>
-                        {{$product->name}}
+                        Product Name: {{$product->name}}
                     </a>
                 </h1>
 
                 <div>
                     <p>
-                        {{$product->description}}
+                        Product Description: {{$product->description}}
                     <br>
-                        {{$product->price}}
+                        Price : {{$product->price}}
 {{--                        {{$product->created_at}}--}}
                     </p>
                     <a href= "{{route('add-favorite', $product->id)}}">

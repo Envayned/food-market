@@ -16,15 +16,15 @@
                 <article>
                     <h1>
                         <a href= "/favorite/{{$favorite->id}}">
-                            {{$favorite->product->name }}
+                            Product Name: {{$favorite->product->name }}
                         </a>
                     </h1>
 
                     <div>
                         <p>
-                            {{$favorite->product->description}}
+                            Product Description: {{$favorite->product->description}}
                             <br>
-                            {{$favorite->product->price}}
+                            Product Price: {{$favorite->product->price}}
                         </p>
                     </div>
                 </article>

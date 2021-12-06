@@ -15,14 +15,14 @@
             @if (Auth::user()->is_admin)
                 <article>
                     <h1>
-                            {{$user->name}}
+                            User Name: {{$user->name}}
                     </h1>
 
                     <div>
                         <p>
-                            {{$user->email}}
+                            User Email: {{$user->email}}
                             <br>
-                            {{$user->id}}
+                            User ID: {{$user->id}}
                             <br>
                         <div>
                             <a href="/user/{{$user->id}}/delete"> delete user</a>
