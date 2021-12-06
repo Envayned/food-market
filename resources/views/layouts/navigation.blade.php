@@ -56,11 +56,21 @@
 
                     <x-slot name="content">
                         <!-- Authentication -->
+                        <form method="GET" action="{{ route('settings') }}">
+                            @csrf
+
+                            <x-dropdown-link :href="route('settings')"
+                                    onclick="event.preventDefault();
+                                                this.closest('form').submit();">
+                                {{ __('Settings') }}
+                            </x-dropdown-link>
+                        </form>
+                        <!-- Authentication -->
                         <form method="POST" action="{{ route('logout') }}">
                             @csrf
 
                             <x-dropdown-link :href="route('logout')"
-                                    onclick="event.preventDefault();
+                                             onclick="event.preventDefault();
                                                 this.closest('form').submit();">
                                 {{ __('Log Out') }}
                             </x-dropdown-link>

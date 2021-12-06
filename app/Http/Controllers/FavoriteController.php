@@ -37,7 +37,7 @@ class FavoriteController extends Controller
     public function store($id)
     {
 
-        if( !Favorite::where('product_id', '=', $id)->exists() && Favorite::where('user_id', '=', auth::id())->exists()) {
+        if( !Favorite::where('product_id', '=', $id)->where('user_id', '=', auth::id())->exists()) {
             $favorite = new Favorite();
             $favorite->product_id = $id;
             $favorite->user_id = auth::id();

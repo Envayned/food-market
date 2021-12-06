@@ -37,17 +37,34 @@ class CartController extends Controller
      */
     public function store($id)
     {
-        
-        if( !Cart::where('product_id', '=', $id)->exists() && Cart::where('user_id', '=', auth::id())->exists()) {
+//        if(!Cart::first()){
+//            $item = new Cart();
+//            $item->product_id = $id;
+//            $item->user_id = auth::id();
+//            $item->quantity = '1';
+//            $item->save();
+//        }
+//        if(Cart::where('product_id', $id)->exists()) {
+//            $item = Cart::where('product_id', $id)->first();
+//            $item->increment('quantity');
+//            $item->save();
+//        }
+        $items = Cart::where('product_id', '=', $id)->where('user_id', '=', auth::id())->get();
+        if( count($items) == 0){//!Cart::where('product_id', '=', $id)->where('user_id', '=', auth::id())->exists()) {
             $item = new Cart();
             $item->product_id = $id;
             $item->user_id = auth::id();
-            $item->quantity = '1';
+            $item->quantity = 1;
             $item->save();
-        }
-        else{
-            $item = Cart::where('product_id', $id)->first();
+        }else{
+            $item = $items[0];
+      //      $item = new Cart();
+        //    $item->product_id = $id;
+          //  $item->user_id = auth::id();
+        //    $item->quantity = 1;
             $item->increment('quantity');
+            $item->save();
+
         }
         return redirect('cart');
     }

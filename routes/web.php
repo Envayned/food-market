@@ -92,3 +92,8 @@ Route::get('/cart', function(){
         'items' => Cart::all()
     ]);
 })->middleware(['auth'])->name("cart");
+
+Route::get('/settings', function () {
+    return view('dashboard');
+})->middleware(['auth'])->name('settings');
+
