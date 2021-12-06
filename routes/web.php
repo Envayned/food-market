@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\UserController;
 use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
@@ -41,6 +42,10 @@ Route::get('/product', function(){
         ProductController::class, 'show'
     ]);
 });
+
+Route::get('/users', [UserController::class, 'show'])
+    ->middleware('auth')
+    ->name("users");
 
 Route::get('/favorites', function(){
    return view('favorites', array(

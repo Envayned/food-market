@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -40,12 +42,20 @@ class UserController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
+     * @param
+     * @return
      */
-    public function show($id)
+    public function show()
     {
-        //
+        if (Auth::user()->is_admin){
+            return view('users', [
+                'user' => User::all()
+         ]);
+        }
+        else{
+            return redirect('dashboard');
+        }
+
     }
 
     /**
