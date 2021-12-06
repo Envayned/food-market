@@ -28,19 +28,50 @@ class ProductController extends Controller
         //
     }
 
-    public function addToCart($id){
-        $product = Product::find($id);
-        $product-> in_cart = true;
-        $product->save();
-        return redirect('cart');
-    }
+//    public function addToCart($id){
+//        $product = Product::find($id);
+//        $product-> in_cart = true;
+//        $product->save();
+//        return redirect('cart')->with('success', 'Product added to cart');
+//        if (!$product){
+//            abort(404);
+//        }
+//        $cart = session()->get('cart');
+//        if(!$cart){
+//
+//            $cart = [
+//                $id => [
+//                    "name" => $product->name,
+//                    "quantity" => 1,
+//                    "price" => $product->price,
+//                    "description" => $product->description
+//                ]
+//            ];
+//            session()->put('cart', $cart);
+//            return redirect('cart')->with('success', 'Product added to cart');
+//        }
+//         if(isset($cart[$id])) {
+//             $cart[$id]['quantity']++;
+//             session()->put('cart', $cart);
+//             return redirect('cart')->with('success', 'Product added to cart');
+//         }
+//        $cart[$id] = [
+//            "name" => $product->name,
+//            "quantity" => 1,
+//            "price" => $product->price,
+//            "photo" => $product->photo
+//        ];
+//        session()->put('cart', $cart);
+//        return redirect('cart')->with('success', 'Product added to cart');
+//
+//    }
 
-    public function removeFromCart($id){
-        $product = Product::find($id);
-        $product-> in_cart = false;
-        $product->save();
-        return redirect('cart');
-    }
+//    public function removeFromCart($id){
+//        $product = Product::find($id);
+//        $product-> in_cart = false;
+//        $product->save();
+//        return redirect('cart');
+//    }
 
     /**
      * Store a newly created resource in storage.

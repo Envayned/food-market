@@ -1,11 +1,13 @@
 <?php
 
+use App\Models\Cart;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Models\Product;
 use App\Models\Favorite;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\CartController;
 
 /*
 |--------------------------------------------------------------------------
@@ -66,11 +68,11 @@ Route::get('/favorite/{id}/add', [FavoriteController::class, 'store'])
     ->middleware(['auth'])
     ->name("add-favorite");
 
-Route::get('/cart/{id}/add', [ProductController::class, 'addToCart'])
+Route::get('/cart/{id}/add', [CartController::class, 'store'])
     ->middleware(['auth'])
     ->name("add-cart");
 
-Route::get('/cart/{id}/remove', [ProductController::class, 'removeFromCart'])
+Route::get('/cart/{id}/remove', [CartController::class, 'destroy'])
     ->middleware(['auth'])
     ->name("remove-cart");
 
@@ -78,6 +80,6 @@ Route::get('/cart/{id}/remove', [ProductController::class, 'removeFromCart'])
 
 Route::get('/cart', function(){
     return view('cart', [
-        'items' => Product::all()
+        'items' => Cart::all()
     ]);
 })->middleware(['auth'])->name("cart");

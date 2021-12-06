@@ -7,19 +7,21 @@
 
     <div class="divide-y-2 divide-gray-200">
         @foreach ($items as $item)
-            @if ($item->in_cart)
+            @if (Auth::id() == $item->user_id)
                 <article>
                     <h1>
-                        <a href= '/product/{{$item->id}}'>
-                            {{$item->name }}
+                        <a href= '/product/{{$item->item_id}}'>
+                            {{$item->product->name }}
                         </a>
                     </h1>
 
                     <div>
                         <p>
-                            {{$item->description}}
+                            {{$item->product->description}}
                             <br>
-                            {{$item->price}}
+                            {{$item->product->price}}
+                            <br>
+                            {{$item->quantity}}
                             <p>
                                 <a href= '{{route('remove-cart', $item->id)}}'>
                                     remove from cart
