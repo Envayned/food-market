@@ -1,13 +1,14 @@
-<x-app-layout>
+<x-app-layout> 
+<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Products') }}
         </h2>
     </x-slot>
 
-    <div class="divide-y-2 divide-gray-200">
+    <div class="divide-y-2 divide-x-2 divide-gray-200  grid grid-cols-3 text-center">
         <?php foreach ($products as $product) : ?>
-            <article>
+            <article >
                 <h1>
                     <a href= '/product/{{$product->id}}'>
                         Product Name: {{$product->name}}
@@ -22,10 +23,12 @@
 {{--                        {{$product->created_at}}--}}
                     </p>
                     <a href= "{{route('add-favorite', $product->id)}}">
-                        <p>add to favorites</p>
+                    <i class="fas fa-heart"></i>&nbsp;&nbsp;&nbsp;
+
+                        
                     </a>
                     <a href= '/cart/{{$product->id}}/add'>
-                        <p>add to cart</p>
+                    <i class="fas fa-cart-plus"></i>
                     </a>
 
                 </div>
