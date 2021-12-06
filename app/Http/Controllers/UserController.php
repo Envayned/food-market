@@ -91,11 +91,16 @@ class UserController extends Controller
     public function destroy($id)
     {
         if (Auth::user()->is_admin) {
-            User::where('id', $id)->delete();
+            User::where('id', $id)->delete()->save();
             return redirect('users');
         }
         else{
             return redirect('dashboard');
         }
+    }
+
+    public function deleteUser(){
+        User::where('id', Auth::id())->delete();
+        return redirect('login');
     }
 }
