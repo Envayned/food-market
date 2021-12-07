@@ -26,7 +26,7 @@
                             {{$item->quantity}}
                             <p>
                                 <a href= '{{route('remove-cart', $item->id)}}'>
-                                <i class="fas fa-trash-alt"></i>
+                                <i class="fas fa-trash-alt fa-lg"></i>
                                 </a>
                             </p>
                         </p>
