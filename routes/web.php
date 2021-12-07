@@ -97,3 +97,13 @@ Route::get('/settings', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('settings');
 
+// two routes, get the view to add item, post the data from the view's form to create a product
+
+Route::get('/createProduct', [ProductController::class, 'create'])
+    ->middleware('auth')
+    ->name('create-product');
+
+Route::post('/createProduct', [ProductController::class, 'store'])
+    ->middleware('auth');
+
+
