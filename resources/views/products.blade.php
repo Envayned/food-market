@@ -34,8 +34,8 @@
                 </div>
             </article>
         <?php endforeach;?>
-            <a href="{{route('create-product')}}">create a new product!</a>
+
     </div>
-    <i class="fas fa-plus-circle fa-3x"></i>
+    <a href="{{route('create-product')}}"><i class="fas fa-plus-circle fa-3x"></i></a>
 </x-app-layout>
 
