@@ -98,6 +98,23 @@ class UserController extends Controller
             return redirect('dashboard');
         }
     }
+    public function deleteReports($id){
+        if(Auth::user()->is_admin){
+            $user = User::where('id', $id)->first();
+            $user->reports = '0';
+            $user->save();
+            return redirect('users');
+        }
+        return redirect('dashboard');
+
+    }
+
+    public function report($id){
+        $user = User::where('id', $id)->first();
+        $user->increment('reports');
+        $user->save();
+        return redirect('users');
+    }
 
     public function deleteUser(){
         User::where('id', Auth::id())->delete();

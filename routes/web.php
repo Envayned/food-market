@@ -83,6 +83,10 @@ Route::get('/cart/{id}/remove', [CartController::class, 'destroy'])
 
 Route::get('/user/{id}/delete', [UserController::class, 'destroy'])->middleware(['auth']);
 
+Route::get('/user/{id}/deleteReports', [UserController::class, 'deleteReports'])->middleware(['auth']);
+
+Route::get('/user/{id}/report', [UserController::class, 'report'])->middleware(['auth']);
+
 Route::get('/user/delete', [UserController::class, 'deleteUser'])->middleware(['auth'])->name('delete-user');
 
 

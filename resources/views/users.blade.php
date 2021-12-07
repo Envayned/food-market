@@ -19,11 +19,16 @@
                     </h1>
 
                     <div>
-                        <p>
+                        <a>
                             User Email: {{$user->email}}
                             <br>
                             User ID: {{$user->id}}
                             <br>
+                            Number of Reports: {{$user->reports}}
+                            <br>
+                            <a href="user/{{$user->id}}/report">report</a>
+                            <br>
+                            <a href="/user/{{$user->id}}/deleteReports">delete reports</a>
                         <div>
                             <a href="/user/{{$user->id}}/delete"> delete user</a>
                         </div>
