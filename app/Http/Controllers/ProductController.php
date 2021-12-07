@@ -6,6 +6,7 @@ use App\Models\Product;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
+use Illuminate\Support\Facades\Auth;
 
 class ProductController extends Controller
 {
@@ -135,7 +136,12 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        Product::where('id', $id)->delete();
-        return redirect('products');
+        if(Auth::user()->is_admin) {
+            Product::where('id', $id)->delete();
+            return redirect('products');
+        }
+        else{
+            return redirect('dashboard');
+        }
     }
 }

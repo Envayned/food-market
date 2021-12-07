@@ -45,6 +45,7 @@ class UserController extends Controller
      * @param
      * @return
      */
+
     public function show()
     {
         if (Auth::user()->is_admin){
@@ -91,7 +92,7 @@ class UserController extends Controller
     public function destroy($id)
     {
         if (Auth::user()->is_admin) {
-            User::where('id', $id)->delete()->save();
+            User::where('id', $id)->delete();
             return redirect('users');
         }
         else{
