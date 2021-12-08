@@ -19,6 +19,25 @@ class UserController extends Controller
     }
 
     /**
+     * Make a user an admin if you're an admin
+     *
+     * @param int $id
+     *
+     */
+    public function makeAdmin($id){
+        if (Auth::user()->is_admin){
+            $user = User::where('id', $id)->first();
+            $user->is_admin = 1;
+            $user->save();
+        }
+        else{
+            return redirect('dashboard');
+        }
+        return redirect('users');
+    }
+
+
+    /**
      * Show the form for creating a new resource.
      *
      * @return \Illuminate\Http\Response

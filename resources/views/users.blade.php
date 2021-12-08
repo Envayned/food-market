@@ -29,6 +29,8 @@
                             <a href="user/{{$user->id}}/report">report</a>
                             <br>
                             <a href="/user/{{$user->id}}/deleteReports">delete reports</a>
+                            <br>
+                            <a href ="{{route('make-admin', $user->id)}}">make admin</a>
                         <div>
                             <a href="/user/{{$user->id}}/delete"> delete user</a>
                         </div>

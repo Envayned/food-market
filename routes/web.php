@@ -22,7 +22,7 @@ use App\Http\Controllers\CartController;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('auth/login');
 });
 
 Route::get('/dashboard', function () {
@@ -101,5 +101,9 @@ Route::get('/createProduct', [ProductController::class, 'create'])
 
 Route::post('/createProduct', [ProductController::class, 'store'])
     ->middleware('auth');
+
+Route::get('/user/{id}/makeAdmin', [UserController::class, 'makeAdmin'])
+    ->middleware('auth')
+    ->name('make-admin');
 
 
