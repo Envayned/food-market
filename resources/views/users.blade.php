@@ -5,21 +5,13 @@
         </h2>
     </x-slot>
     <div class="divide-y-2 divide-x-2 divide-gray-200  grid grid-cols-3 text-center">
-
-        {{--        @php--}}
-        {{--            use Illuminate\Support\Facades\Auth;--}}
-        {{--            $id = Auth::id();--}}
-        {{--        @endphp--}}
-
         @foreach ($user as $user)
             @if (Auth::user()->is_admin)
                 <article>
                     <h1>
                             User Name: {{$user->name}}
                     </h1>
-
                     <div>
-                        <a>
                             User Email: {{$user->email}}
                             <br>
                             User ID: {{$user->id}}

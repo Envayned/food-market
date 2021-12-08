@@ -19,13 +19,6 @@ class CartController extends Controller
         //
     }
 
-//    public function getCartById(){
-//        $id = Auth::id();
-//
-//        Cart::where('user_id', $id)->get();
-//        return redirect("cart");
-//    }
-
     /**
      * Show the form for creating a new resource.
      *
@@ -44,18 +37,6 @@ class CartController extends Controller
      */
     public function store($id)
     {
-//        if(!Cart::first()){
-//            $item = new Cart();
-//            $item->product_id = $id;
-//            $item->user_id = auth::id();
-//            $item->quantity = '1';
-//            $item->save();
-//        }
-//        if(Cart::where('product_id', $id)->exists()) {
-//            $item = Cart::where('product_id', $id)->first();
-//            $item->increment('quantity');
-//            $item->save();
-//        }
         $items = Cart::where('product_id', '=', $id)->where('user_id', '=', auth::id())->get();
         if( count($items) == 0){//!Cart::where('product_id', '=', $id)->where('user_id', '=', auth::id())->exists()) {
             $item = new Cart();

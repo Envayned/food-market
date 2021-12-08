@@ -89,6 +89,7 @@ Route::get('/cart', function(){
     ]);
 })->middleware(['auth'])->name("cart");
 
+// WILL WORK ON THIS LATER DO NOT DELETE, we just wanna fix the querying problem
 //Route::get('/cart', [CartController::class, 'getCartById'])
 //    ->middleware('auth')
 //    ->name('cart-by-id');

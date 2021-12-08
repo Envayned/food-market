@@ -21,7 +21,6 @@
                         Product Description: {{$product->description}}
                     <br>
                         Price : {{$product->price}}
-{{--                        {{$product->created_at}}--}}
                     </p>
                     <a href= "{{route('add-favorite', $product->id)}}">
                     <i class="fas fa-heart fa-lg"></i>&nbsp;&nbsp;&nbsp;

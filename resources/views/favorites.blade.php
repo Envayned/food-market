@@ -5,16 +5,11 @@
         </h2>
     </x-slot>
     <div class="divide-y-2 divide-x-2 divide-gray-200  grid grid-cols-3 text-center">
-
-{{--        @php--}}
-{{--            use Illuminate\Support\Facades\Auth;--}}
-{{--            $id = Auth::id();--}}
-{{--        @endphp--}}
-
         @foreach ($favorites as $favorite)
            @if (Auth::id() == $favorite->user_id)
                 <article>
                     <h1>
+                        <img src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" alt="Not Found" width="500" height="100">
                         <a href= "/favorite/{{$favorite->id}}">
                             Product Name: {{$favorite->product->name }}
                         </a>

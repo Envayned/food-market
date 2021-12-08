@@ -9,12 +9,10 @@
 
     <body>
         <article>
+            <img src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" alt="Not Found" width="250" height="100">
             <h1>{{$favorite ?? ''}}</h1>
 
             <div>
-{{--                @foreach($collection as $favorite)--}}
-{{--                    {{$favorite->product->name}}--}}
-{{--                @endforeach--}}
             </div>
             <div>
                 <a href="/favorite/{{$favorite->id}}/delete"> <i class="far fa-heart fa-2x"></i></a>
@@ -23,5 +21,5 @@
     <br>
     <a href="/favorites"><i class="fas fa-arrow-circle-left fa-2x"></i></a>
     </body>
-   
+
 </x-app-layout>
