@@ -22,6 +22,6 @@ class ProductSeeder extends Seeder
 //            'description' => 'text 1',
 //            'price' => '1.99',
 //        ]);
-        Product::factory(12)->create();
+        Product::factory(21)->create();
     }
 }
