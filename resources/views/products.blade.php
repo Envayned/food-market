@@ -10,6 +10,7 @@
         <?php foreach ($products as $product) : ?>
             <article>
                 <h1>
+                    <img src="https://st4.depositphotos.com/14953852/24787/v/600/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg" alt="Not Found" width="500" height="100">
                     <a href= "/product/{{$product->id}}">
                         Product Name: {{$product->name}}
                     </a>

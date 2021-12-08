@@ -19,6 +19,13 @@ class CartController extends Controller
         //
     }
 
+//    public function getCartById(){
+//        $id = Auth::id();
+//
+//        Cart::where('user_id', $id)->get();
+//        return redirect("cart");
+//    }
+
     /**
      * Show the form for creating a new resource.
      *

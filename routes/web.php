@@ -89,6 +89,10 @@ Route::get('/cart', function(){
     ]);
 })->middleware(['auth'])->name("cart");
 
+//Route::get('/cart', [CartController::class, 'getCartById'])
+//    ->middleware('auth')
+//    ->name('cart-by-id');
+
 Route::get('/settings', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('settings');
