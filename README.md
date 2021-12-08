@@ -67,3 +67,13 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
 # food-market
 
 Food Market is an app designed for a school project to test out the capabilities of Laravel.
+
+1 - After pulling the app you have to run `composer install` for the dependencies. <br>
+2 - Run `php artisan serve` in the project directory.<br>
+3 - After running an apache server with XAMPP (different one than `php artisan serve`, start running an SQL server.<br>
+4 - From the `localhost/phpmyadmin` page, create a new database called `laravel`.<br>
+5 - Run the command `php artisan migrate:refresh --seed` or `php artisan migrate --seed`.<br> 
+6 - The application is now at `localhost:8000` and the databases have been seeded.<br>
+7 - To log into the application, use the email `hadi@admin.com` or `jo@admin.com`, both of which are admin accounts; they provide full access to the application, the password is always `password`.<br>
+8 - To log into a different (non-admin) account, refer to the database tables for the email addresses of other accounts. (or remove an admin account's admin rights OR register)<br>
+9 - have fun, give us 100 pls.<br>
