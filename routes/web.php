@@ -52,14 +52,6 @@ Route::get('/favorites', function(){
       'favorites' => Favorite::where('user_id', Auth::id())->get()
    ));
 })->middleware(['auth'])->name("favorites");
-//
-//Route::get('/favorites', [FavoriteController::class, 'getByUserId'])
-//    ->middleware('auth')
-//    ->name('favorites');
-
-//Route::get('/favorites', function(){
-//   return var_dump(auth::id());
-//});
 
 Route::get('/favorite/{id}', [FavoriteController::class, 'show'])->middleware(['auth']);
 

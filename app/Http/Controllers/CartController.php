@@ -58,10 +58,6 @@ class CartController extends Controller
             $item->save();
         }else{
             $item = $items[0];
-      //      $item = new Cart();
-        //    $item->product_id = $id;
-          //  $item->user_id = auth::id();
-        //    $item->quantity = 1;
             $item->increment('quantity');
             $item->save();
 
