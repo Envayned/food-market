@@ -29,7 +29,7 @@ Route::get('/users', function(){
     return new JsonResponse([
         'data' => User::get()
     ]);
-})/*->middleware('auth')*/->name('users');
+})/*->middleware('auth')*/->name('users-api');
 
 // implicit route binding (using a model's variable that matches with the URI field)
 Route::get('/users/{id}', function(User $id){
@@ -43,7 +43,7 @@ Route::get('/products', function(){
    return new JsonResponse([
        'data' => Product::get()
    ]);
-})->name('products');
+})->name('products-api');
 
 // finds all the products based on their id
 Route::get('/products/{id}', function (Product $id){
@@ -58,7 +58,7 @@ Route::get('/carts', function(){
        'data' => Cart::with(['product', 'user'])
            ->get()
    ]) ;
-})->name('carts');
+})->name('carts-api');
 
 //finds all the carts based on ID
 Route::get('/carts/{id}', function ($id){
@@ -74,7 +74,7 @@ Route::get('/favorites', function(){
    return new JsonResponse([
       'data' => Favorite::with(['product', 'user'])->get()
    ]);
-})->name('favorites');
+})->name('favorites-api');
 
 // can find all the favorites based on user ID
 Route::get('/favorites/{userId}', function($userId){
@@ -90,11 +90,6 @@ Route::redirect('/favorite', 'favorites');
 Route::redirect('/user', 'users');
 Route::redirect('/cart', 'carts');
 Route::redirect('/product', 'products');
-
-Route::redirect('/favorite/{$id}', 'favorites/{$id}');
-Route::redirect('/user/{$id}', 'users/{$id}');
-Route::redirect('/cart/{$id}', 'carts/{$id}');
-Route::redirect('/product/{$id}', 'products/{$id}');
 
 Route::redirect('/','users');
 
