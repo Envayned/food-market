@@ -37,6 +37,11 @@
                         {{ __('Users') }}
                     </x-nav-link>
                 </div>
+{{--                <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">--}}
+{{--                    <x-nav-link :href="route('api-users')" :active="request()->routeIs('api-users')">--}}
+{{--                        {{ __('Api') }}--}}
+{{--                    </x-nav-link>--}}
+{{--                </div>--}}
                 @endif
 
 

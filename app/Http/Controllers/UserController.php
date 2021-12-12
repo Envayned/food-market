@@ -75,8 +75,9 @@ class UserController extends Controller
         else{
             return redirect('dashboard');
         }
-
     }
+
+
 
     /**
      * Show the form for editing the specified resource.

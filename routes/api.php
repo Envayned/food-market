@@ -5,6 +5,11 @@ use Illuminate\Support\Facades\Route;
 use Illuminate\Http\JsonResponse;
 use App\Http\Controllers\UserController;
 use App\Models\User;
+use App\Models\Product;
+use App\Models\Cart;
+use App\Models\Favorite;
+
+
 /*
 |--------------------------------------------------------------------------
 | API Routes
@@ -24,7 +29,7 @@ Route::get('/users', function(){
     return new JsonResponse([
         'data' => User::get()
     ]);
-});
+})/*->middleware('auth')*/->name('api-users');
 
 // implicit route binding (using a model's variable that matches with the URI field)
 Route::get('/users/{id}', function(User $id){
@@ -33,14 +38,46 @@ Route::get('/users/{id}', function(User $id){
    ]);
 });
 
-Route::post('/users', function(){
-
+// finds all the products in the database
+Route::get('/products', function(){
+   return new JsonResponse([
+       'data' => Product::get()
+   ]);
 });
 
-Route::patch('/users/{id}', function(User $id){
-
+// finds all the products based on their id
+Route::get('/products/{id}', function (Product $id){
+   return new JsonResponse([
+       'data' => $id
+   ]);
 });
 
-Route::delete('/users/{id}', function(User $id){
-
+//finds all the carts from the database
+Route::get('/carts', function(){
+   return new JsonResponse([
+       'data' => Cart::get()
+   ]) ;
 });
+
+//finds all the carts based on ID
+Route::get('/carts/{id}', function ($id){
+   return new JsonResponse([
+       'data' => Cart::where('user_id', $id)->get()
+   ]) ;
+});
+
+// finds all the favorites
+Route::get('/favorites', function(){
+   return new JsonResponse([
+      'data' => Favorite::get()
+   ]);
+});
+
+// can find all the favrorites based on user ID
+Route::get('/favorites/{id}', function($id){
+   return new JsonResponse([
+       'data' => Favorite::where('user_id', $id)->get()
+   ]) ;
+});
+
+
