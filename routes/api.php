@@ -55,29 +55,34 @@ Route::get('/products/{id}', function (Product $id){
 //finds all the carts from the database
 Route::get('/carts', function(){
    return new JsonResponse([
-       'data' => Cart::get()
+       'data' => Cart::with(['product', 'user'])
+           ->get()
    ]) ;
 });
 
 //finds all the carts based on ID
 Route::get('/carts/{id}', function ($id){
    return new JsonResponse([
-       'data' => Cart::where('user_id', $id)->get()
+       'data' => Cart::where('user_id', $id)
+           ->with(['product', 'user'])
+           ->get()
    ]) ;
 });
 
 // finds all the favorites
 Route::get('/favorites', function(){
    return new JsonResponse([
-      'data' => Favorite::get()
+      'data' => Favorite::with(['product', 'user'])->get()
    ]);
 });
 
-// can find all the favrorites based on user ID
-Route::get('/favorites/{id}', function($id){
+// can find all the favorites based on user ID
+Route::get('/favorites/{userId}', function($userId){
    return new JsonResponse([
-       'data' => Favorite::where('user_id', $id)->get()
-   ]) ;
+       'data' => Favorite::where('user_id', $userId)
+           ->with(['product', 'user'])
+           ->get()
+   ]);
 });
 
 

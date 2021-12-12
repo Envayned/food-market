@@ -21,10 +21,8 @@ class Product extends Model
          'price',
      ];
 
-    public function favorites(){
+    public function favorites()
+    {
         return $this->HasMany(Favorite::class);
     }
-
-
-
 }

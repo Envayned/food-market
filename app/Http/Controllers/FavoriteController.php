@@ -101,10 +101,10 @@ class FavoriteController extends Controller
      *
      * @return $query
      */
-    public function getByUserId(){
-        return view('favorites', [
-            'favorites' => Favorite::where('user_id', Auth::id())->get()
-        ]);
-    }
+//    public function getByUserId(){
+//        return view('favorites', [
+//            'favorites' => Favorite::where('user_id', Auth::id())->get()
+//        ]);
+//    }
 
 }
