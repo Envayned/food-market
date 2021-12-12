@@ -29,28 +29,28 @@ Route::get('/users', function(){
     return new JsonResponse([
         'data' => User::get()
     ]);
-})/*->middleware('auth')*/->name('api-users');
+})/*->middleware('auth')*/->name('users');
 
 // implicit route binding (using a model's variable that matches with the URI field)
 Route::get('/users/{id}', function(User $id){
    return new JsonResponse([
        'data' => $id
    ]);
-});
+})->name('users-id');
 
 // finds all the products in the database
 Route::get('/products', function(){
    return new JsonResponse([
        'data' => Product::get()
    ]);
-});
+})->name('products');
 
 // finds all the products based on their id
 Route::get('/products/{id}', function (Product $id){
    return new JsonResponse([
        'data' => $id
    ]);
-});
+})->name('products-id');
 
 //finds all the carts from the database
 Route::get('/carts', function(){
@@ -58,7 +58,7 @@ Route::get('/carts', function(){
        'data' => Cart::with(['product', 'user'])
            ->get()
    ]) ;
-});
+})->name('carts');
 
 //finds all the carts based on ID
 Route::get('/carts/{id}', function ($id){
@@ -67,14 +67,14 @@ Route::get('/carts/{id}', function ($id){
            ->with(['product', 'user'])
            ->get()
    ]) ;
-});
+})->name('carts-id');
 
 // finds all the favorites
 Route::get('/favorites', function(){
    return new JsonResponse([
       'data' => Favorite::with(['product', 'user'])->get()
    ]);
-});
+})->name('favorites');
 
 // can find all the favorites based on user ID
 Route::get('/favorites/{userId}', function($userId){
@@ -83,6 +83,20 @@ Route::get('/favorites/{userId}', function($userId){
            ->with(['product', 'user'])
            ->get()
    ]);
-});
+})->name('favorites-id');
+
+// adding redirects in case of no routes found
+Route::redirect('/favorite', 'favorites');
+Route::redirect('/user', 'users');
+Route::redirect('/cart', 'carts');
+Route::redirect('/product', 'products');
+
+Route::redirect('/favorite/{$id}', 'favorites/{$id}');
+Route::redirect('/user/{$id}', 'users/{$id}');
+Route::redirect('/cart/{$id}', 'carts/{$id}');
+Route::redirect('/product/{$id}', 'products/{$id}');
+
+Route::redirect('/','users');
+
 
 
